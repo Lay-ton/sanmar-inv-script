@@ -8,7 +8,7 @@ WRITE_SPREADSHEET_RANGE = "Sheet1!E2:L100"
 
 def getDataFromSheets(spreadSheetId):
     credentials = Credentials.from_service_account_file(
-        'credentials.json', scopes=SCOPES)
+        'google-credentials.json', scopes=SCOPES)
     service = discovery.build('sheets', 'v4', credentials=credentials)
 
     results = service.spreadsheets().values().get(
@@ -22,7 +22,7 @@ def writeDataToSheets(spreadSheetId, data):
         "values": data
     }
     credentials = Credentials.from_service_account_file(
-        'credentials.json', scopes=SCOPES)
+        'google-credentials.json', scopes=SCOPES)
     service = discovery.build('sheets', 'v4', credentials=credentials)
 
     results = service.spreadsheets().values().update(
