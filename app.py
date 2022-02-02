@@ -16,12 +16,6 @@ spreadsheet_id = os.getenv('SPREADSHEET_ID')
 
 input = getDataFromSheets(spreadsheet_id)
 
-# outputFile = open(f"sanmar_inventory_{today}.csv", "w+")
-# output = csv.writer(outputFile)
-
-# output.writerow(["ID", "COLOR", "XS", "S", "M",
-#                 "L", "XL", "2XL", "3XL", "4XL"])
-
 values = []
 for row in input:
     productInv = getInventoryLevel(row[0], row[3])
