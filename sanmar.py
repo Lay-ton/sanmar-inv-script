@@ -45,7 +45,6 @@ def getInventoryLevel(productId, colorList):
     except Exception as e:
         print("Error: ", e)
 
-    print(result)
     for item in inventory:
         curColor = item['partColor']
         curItem = {} if not colorAndSize.get(
