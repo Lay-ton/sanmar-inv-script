@@ -20,6 +20,7 @@ values = []
 for row in input:
     productInv = getInventoryLevel(row[0], row[3])
     inventory = productInv['inventory']
+    store = [0, 0, 0, 0, 0, 0, 0, 0]
     for key in inventory.keys():
         curItem = inventory[key]
         store = [curItem.get('XS', 0), curItem.get('S', 0), curItem.get('M', 0),

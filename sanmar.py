@@ -25,6 +25,7 @@ def getInventoryLevel(productId, colorList):
     wsdl = "https://ws.sanmar.com:8080/promostandards/InventoryServiceBindingV2final?WSDL"  # prod
     # wsdl = "https://euat-ws.sanmar.com:8080/promostandards/InventoryServiceBindingV2final?WSDL"  # euat
     client = connect_to_wsdl(wsdl)
+    inventory = []
 
     request_data = {
         'wsVersion': '2.0.0',
@@ -43,7 +44,8 @@ def getInventoryLevel(productId, colorList):
     try:
         inventory = result['Inventory']['PartInventoryArray']['PartInventory']
     except Exception as e:
-        print("Error: ", e)
+        print(
+            f"Product ID: {productId}, Color: {colorList}. Does not have any inventory")
 
     for item in inventory:
         curColor = item['partColor']
